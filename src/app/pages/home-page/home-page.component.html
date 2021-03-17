@@ -1,0 +1,41 @@
+<mat-card class="home-page-container">
+  <div class="search-container">
+    <mat-form-field appearance="outline">
+      <span matPrefix><mat-icon>search</mat-icon></span>
+      <input
+        matInput
+        placeholder="  search countries"
+        (change)="handleSearch($event)"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Filter by region</mat-label>
+      <mat-select (valueChange)="handleFilterCountries($event)">
+        <mat-option *ngFor="let region of regions" [value]="region">
+          {{ region }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="countries-container">
+    <div *ngIf="isLoading" class="loading">
+      <mat-spinner></mat-spinner>
+      <p><b>Please wait for the result...</b></p>
+    </div>
+
+    <div *ngIf="isError" class="loading">
+      <p>
+        <b>{{ errorMessage }}.</b>
+      </p>
+    </div>
+
+    <app-country-card
+      class="country-card"
+      *ngFor="let country of countriesData"
+      [country]="country"
+    >
+    </app-country-card>
+  </div>
+</mat-card>
