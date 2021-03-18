@@ -14,7 +14,7 @@ export class AppComponent {
     private renderer: Renderer2
   ) {}
 
-  toggleDarkMod(isDarkMode: boolean) {
+  toggleDarkMod(isDarkMode: boolean): void {
     const hostClass = isDarkMode ? 'theme-dark' : 'theme-light';
     this.renderer.setAttribute(this.document.body, 'class', hostClass);
   }

@@ -19,7 +19,7 @@ export class HomePageComponent implements OnInit {
       this.countriesData = response;
     });
   }
-  handleSearch(event: any) {
+  handleSearch(event: any): void {
     this.isLoading = true;
     this.isError = false;
     this.countriesData = [];
@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
       (error) => {
         this.isLoading = false;
         this.isError = true;
-        if (error.status == 404) {
+        if (error.status === 404) {
           this.errorMessage = 'Sorry,no matching result for your search';
         } else {
           this.errorMessage = 'Please, try again';
@@ -38,7 +38,7 @@ export class HomePageComponent implements OnInit {
       }
     );
   }
-  handleFilterCountries(region: string) {
+  handleFilterCountries(region: string): void {
     this.isLoading = true;
     this.isError = false;
     this.countriesData = [];

@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   @Output() isDark = new EventEmitter();
   ngOnInit(): void {}
 
-  onDarkModeToggle(event: { checked: boolean }) {
+  onDarkModeToggle(event: { checked: boolean }): void {
     this.isDark.emit(event.checked);
   }
 }
