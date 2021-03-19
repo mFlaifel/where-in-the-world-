@@ -31,11 +31,13 @@
       </p>
     </div>
 
-    <app-country-card
-      class="country-card"
+    <a
       *ngFor="let country of countriesData"
-      [country]="country"
+      [routerLink]="['/country', country.name]"
+      [state]="country"
     >
-    </app-country-card>
+      <app-country-card class="country-card" [country]="country">
+      </app-country-card>
+    </a>
   </div>
 </mat-card>
