@@ -78,7 +78,6 @@ export class CountryDetailsComponent implements OnInit {
       this.countryService.getBorderCountries(borders).subscribe((res: any) => {
         this.borderCountries = res;
         this.isLoading = false;
-        console.log('test2');
       });
     }
   }
