@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './modules/material.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CountryCardComponent } from './components/country-card/country-card.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CountryDetailsComponent } from './pages/country-details/country-details.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { CountryCardComponent } from './components/country-card/country-card.com
     HeaderComponent,
     HomePageComponent,
     CountryCardComponent,
+    NotFoundComponent,
+    CountryDetailsComponent,
   ],
   imports: [
     BrowserModule,
