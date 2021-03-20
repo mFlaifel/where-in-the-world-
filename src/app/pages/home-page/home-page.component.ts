@@ -20,12 +20,14 @@ export class HomePageComponent implements OnInit {
       this.countriesData = response;
     });
   }
+
   handleSearch(event: any): void {
     this.isLoading = true;
     this.isError = false;
     this.countriesData = [];
     this.countryService.getCountriesByName(event.target.value).subscribe(
       (response: any) => {
+        this.isLoading = false;
         this.countriesData = response;
       },
       (error) => {
@@ -39,6 +41,7 @@ export class HomePageComponent implements OnInit {
       }
     );
   }
+
   handleFilterCountries(region: string): void {
     this.isLoading = true;
     this.isError = false;
