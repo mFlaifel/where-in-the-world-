@@ -1,27 +1,40 @@
-# KnowYourCountry
+# Where is in the world?
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+## Table of contents
 
-## Development server
+- [Overview](#overview)
+- [User Stories](#User-Stories)
+- [Installation](#Installation)
+- [Links](#links)
+- [Built with](#built-with)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Overview
 
-## Code scaffolding
+This app will get information about countries by [using rest countries api.](https://restcountries.eu/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## User Stories
 
-## Build
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+- Toggle the color scheme between light and dark mode
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Installation
 
-## Running unit tests
+- Make sure you have [nodejs](https://nodejs.org/en/download/), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Angular CLI](https://cli.angular.io/) installed in your machine
+- Open your terminal and clone this repo ` git clone https://github.com/mFlaifel/where-in-the-world-.git`
+- Redirect to the folder using cd command` cd where-in-the-world`
+- Install app dependencies ` npm i`
+- To open the project in your browser `ng serve -o` then go to [http://localhost:4200/](http://localhost:4200/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Links
 
-## Running end-to-end tests
+- Live Site URL: [https://where-is-in-the-world.web.app/countries](https://where-is-in-the-world.web.app/countries)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Built with
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Semantic HTML5 markup
+- Flexbox
+- [Angular](https://angular.io/)
+- [Angular Material](https://material.angular.io/)
