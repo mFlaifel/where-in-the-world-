@@ -1,5 +1,6 @@
 import { CountryService } from './../../services/country.service';
 import { Component, OnInit } from '@angular/core';
+import { Country } from 'src/app/models/country';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +13,7 @@ export class HomePageComponent implements OnInit {
   isError = false;
   errorMessage = '';
   regions: string[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
-  countriesData: any[] = [];
+  countriesData: Country[] = [];
   ngOnInit(): void {
     this.countryService.getAllCountries().subscribe((response: any) => {
       this.isLoading = false;
@@ -31,7 +32,7 @@ export class HomePageComponent implements OnInit {
         this.isLoading = false;
         this.isError = true;
         if (error.status === 404) {
-          this.errorMessage = 'Sorry,no matching result for your search';
+          this.errorMessage = 'Sorry, no matching result';
         } else {
           this.errorMessage = 'Please, try again';
         }

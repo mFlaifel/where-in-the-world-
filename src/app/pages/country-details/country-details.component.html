@@ -1,0 +1,80 @@
+<mat-card class="container">
+  <button mat-stroked-button (click)="handleGoBack()" class="btn-back">
+    <mat-icon>keyboard_backspace</mat-icon>
+    back
+  </button>
+  <div class="country-details-container">
+    <div *ngIf="isLoading" class="loading">
+      <mat-spinner></mat-spinner>
+      <p><b>Please wait for the result...</b></p>
+    </div>
+
+    <div *ngIf="isError" class="loading">
+      <p>
+        <b>{{ errorMessage }}</b>
+      </p>
+    </div>
+    <img
+      [src]="countryData.flag"
+      [alt]="countryData.name + ' flag'"
+      *ngIf="!isLoading && !isError"
+    />
+
+    <div class="details" *ngIf="!isLoading && !isError">
+      <b class="country-name">{{ countryData.name }}</b>
+      <div class="country-more-details">
+        <p>
+          <b>Native Name: </b>
+          {{ countryData.nativeName }}
+        </p>
+        <p>
+          <b>Population: </b>
+          {{ countryData.population }}
+        </p>
+        <p>
+          <b>Region: </b>
+          {{ countryData.region }}
+        </p>
+        <p>
+          <b>Sub Region: </b>
+          {{ countryData.subregion }}
+        </p>
+        <p>
+          <b>Capital: </b>
+          {{ countryData.capital }}
+        </p>
+        <p>
+          <b>Top Level Domain: </b>
+          {{ countryData.topLevelDomain }}
+        </p>
+        <p>
+          <b>Currencies: </b>
+          <span *ngFor="let currency of countryData.currencies; last as l">
+            {{ currency.name }}
+            <span *ngIf="!l && countryData.currencies.length > 1">,</span></span
+          >
+        </p>
+        <p>
+          <b>Languages: </b>
+          <span *ngFor="let language of countryData.languages; last as l"
+            >{{ language.name }}
+            <span *ngIf="!l && countryData.languages.length > 1">,</span>
+          </span>
+        </p>
+      </div>
+      <div class="country-border" *ngIf="borderCountries.length > 0">
+        <p>
+          <b>Border Countries: </b>
+          <a
+            class="country-border-link"
+            mat-stroked-button
+            *ngFor="let borderCountry of borderCountries; last as l"
+            [routerLink]="['/country', borderCountry.name]"
+            [state]="borderCountry"
+            >{{ borderCountry.name }}
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</mat-card>

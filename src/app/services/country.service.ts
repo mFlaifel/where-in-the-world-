@@ -17,4 +17,18 @@ export class CountryService {
   getCountriesByRegion(region: string) {
     return this.http.get(`http://restcountries.eu/rest/v2/region/${region}`);
   }
+
+  getCountryByName(name: string) {
+    return this.http.get(
+      `http://restcountries.eu/rest/v2/name/${name}?fullText=true`
+    );
+  }
+
+  getBorderCountries(borderCountriesArray: string[]) {
+    return this.http.get(
+      `https://restcountries.eu/rest/v2/alpha?codes=${borderCountriesArray.join(
+        ';'
+      )}`
+    );
+  }
 }
