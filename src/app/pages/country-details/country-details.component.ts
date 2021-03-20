@@ -71,7 +71,7 @@ export class CountryDetailsComponent implements OnInit {
   }
 
   fetchBoarderCountries(borders: string[]): void {
-    if (borders?.length === 0) {
+    if (borders?.length === 0 || borders === undefined) {
       this.isLoading = false;
       return;
     } else {
