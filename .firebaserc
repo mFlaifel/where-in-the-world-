@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "where-is-in-the-world": {
+      "hosting": {
+        "know-your-country": [
+          "where-is-in-the-world"
+        ]
+      }
+    }
+  }
+}

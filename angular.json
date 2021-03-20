@@ -117,6 +117,10 @@
               "devServerTarget": "know-your-country:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
