@@ -33,7 +33,7 @@
 
     <a
       *ngFor="let country of countriesData"
-      [routerLink]="['/country', country.name]"
+      [routerLink]="['/country', country.name.official]"
       [state]="country"
     >
       <app-country-card class="country-card" [country]="country">

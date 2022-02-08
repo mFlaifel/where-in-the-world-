@@ -1,8 +1,8 @@
 <mat-card class="country-card">
-  <img [src]="country.flag" alt="" class="country-image" />
+  <img [src]="country.flags.png" alt="" class="country-image" />
   <div class="country-details">
     <p class="country-name">
-      <b>{{ country.name }}</b>
+      <b>{{ country.name?.official }}</b>
     </p>
     <p><b>Population:</b> {{ country.population | number }}</p>
     <p><b>Region:</b> {{ country.region }}</p>

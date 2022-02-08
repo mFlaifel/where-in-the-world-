@@ -15,17 +15,17 @@
       </p>
     </div>
     <img
-      [src]="countryData.flag"
+      [src]="countryData.flags?.png"
       [alt]="countryData.name + ' flag'"
       *ngIf="!isLoading && !isError"
     />
 
     <div class="details" *ngIf="!isLoading && !isError">
-      <b class="country-name">{{ countryData.name }}</b>
+      <b class="country-name">{{ countryData.name.official }}</b>
       <div class="country-more-details">
         <p>
           <b>Native Name: </b>
-          {{ countryData.nativeName }}
+          {{ countryData.name.nativeName }}
         </p>
         <p>
           <b>Population: </b>
@@ -45,7 +45,7 @@
         </p>
         <p>
           <b>Top Level Domain: </b>
-          {{ countryData.topLevelDomain }}
+          {{ countryData.tld[0] }}
         </p>
         <p>
           <b>Currencies: </b>
@@ -57,7 +57,7 @@
         <p>
           <b>Languages: </b>
           <span *ngFor="let language of countryData.languages; last as l"
-            >{{ language.name }}
+            >{{ language }}
             <span *ngIf="!l && countryData.languages.length > 1">,</span>
           </span>
         </p>
@@ -69,9 +69,9 @@
             class="country-border-link"
             mat-stroked-button
             *ngFor="let borderCountry of borderCountries; last as l"
-            [routerLink]="['/country', borderCountry.name]"
+            [routerLink]="['/country', borderCountry.name.official]"
             [state]="borderCountry"
-            >{{ borderCountry.name }}
+            >{{ borderCountry.name.official }}
           </a>
         </p>
       </div>
