@@ -1,5 +1,5 @@
 export class Country {
-  'name': string;
+  'name': { official: string; nativeName: string };
   'topLevelDomain': string[];
   'alpha2Code': string;
   'alpha3Code': string;
@@ -19,7 +19,6 @@ export class Country {
   'numericCode': string;
   'currencies': [
     {
-      code: string;
       name: string;
       symbol: string;
     }
@@ -45,6 +44,7 @@ export class Country {
     fa: string;
   };
   'flag': string;
+  'flags': { png: string };
   'regionalBlocs': [
     {
       acronym: string;
@@ -60,4 +60,5 @@ export class Country {
     }
   ];
   'cioc': string;
+  'tld': string[];
 }

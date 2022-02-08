@@ -34,7 +34,7 @@ export class CountryDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     if (window.history.state.name !== undefined) {
-      this.countryData = window.history.state;
+      this.countryData = this.modifyData(window.history.state);
       this.countryName = window.history.state.name;
       this.fetchBoarderCountries(window.history.state.name.boarders);
       this.isLoading = false;
@@ -42,7 +42,6 @@ export class CountryDetailsComponent implements OnInit {
       this.fetchCountryData(this.countryName);
     } else {
       this.isLoading = false;
-
       this.isError = true;
       this.errorMessage = `can't fetch data, please try again`;
     }
@@ -55,7 +54,7 @@ export class CountryDetailsComponent implements OnInit {
   fetchCountryData(countryName: string): void {
     this.countryService.getCountryByName(countryName).subscribe(
       (response: any) => {
-        this.countryData = response[0];
+        this.countryData = this.modifyData(response[0]);
         this.fetchBoarderCountries(response[0].borders);
       },
       (error) => {
@@ -80,5 +79,37 @@ export class CountryDetailsComponent implements OnInit {
         this.isLoading = false;
       });
     }
+  }
+
+  modifyData(countryData: Country) {
+    //get native name
+    const nativeNameKey: string = Object.keys(countryData.name.nativeName)[0];
+    countryData.name.nativeName =
+      //@ts-ignore
+      countryData.name.nativeName[nativeNameKey].official;
+    //get currencies
+    const currencyKeysArray: string[] = Object.keys(countryData.currencies);
+    let currencies: [] = [];
+    currencyKeysArray.forEach((e: string) => {
+      //@ts-ignore
+      const currency = countryData.currencies[e];
+      //@ts-ignore
+      currencies.push(currency);
+    });
+    //@ts-ignore
+    countryData.currencies = currencies;
+
+    //get languages
+    const languageKeysArray: string[] = Object.keys(countryData.languages);
+    let languages: [] = [];
+    languageKeysArray.forEach((e: string) => {
+      //@ts-ignore
+      const language = countryData.languages[e];
+      //@ts-ignore
+      languages.push(language);
+    });
+    //@ts-ignore
+    countryData.languages = languages;
+    return countryData;
   }
 }
